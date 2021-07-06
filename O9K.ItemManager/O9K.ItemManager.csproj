@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A2BC34E1-F2A7-41DC-B557-3F272B45AAD7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>O9K.ItemManager</RootNamespace>
+    <AssemblyName>O9K.ItemManager</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <LangVersion>9.0</LangVersion>
+    <TargetFrameworkProfile />
+    <PostBuildEvent>if exist "C:\Program Files\Divine\Divine.exe" call "C:\Program Files\Divine\Divine.exe" -PostBuildEvent -AssemblyName="$(AssemblyName)"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Bootstrap.cs" />
+    <Compile Include="Enums\Stats.cs" />
+    <Compile Include="Menu\MainMenu.cs" />
+    <Compile Include="Metadata\IMainMenu.cs" />
+    <Compile Include="Metadata\IModule.cs" />
+    <Compile Include="Modules\AbilityLeveling\AbilityBuild\AbilityBuilder.cs" />
+    <Compile Include="Modules\AbilityLeveling\AbilityBuild\BuildDrawer.cs" />
+    <Compile Include="Modules\AbilityLeveling\AbilityBuild\BuildType.cs" />
+    <Compile Include="Modules\AbilityLeveling\AbilityBuild\LearnableAbility.cs" />
+    <Compile Include="Modules\AbilityLeveling\AbilityLeveling.cs" />
+    <Compile Include="Modules\AbilityLeveling\Names\Abilities.cs" />
+    <Compile Include="Modules\AbilityLeveling\Names\Heroes.cs" />
+    <Compile Include="Modules\AbilityLeveling\Names\NameManager.cs" />
+    <Compile Include="Modules\AbyssalAbuse.cs" />
+    <Compile Include="Modules\AutoActions\ItemSwap.cs" />
+    <Compile Include="Modules\AutoActions\MinesDestroyer.cs" />
+    <Compile Include="Modules\AutoActions\PowerTreads.cs" />
+    <Compile Include="Modules\AutoActions\SoulRing.cs" />
+    <Compile Include="Modules\GoldSpender\AutoBuy.cs" />
+    <Compile Include="Modules\GoldSpender\NearDeath.cs" />
+    <Compile Include="Modules\Hotkeys\Purchase.cs" />
+    <Compile Include="Modules\OrderHelper\OrderSync.cs" />
+    <Compile Include="Modules\RecoveryAbuse\Abilities\Bottle.cs" />
+    <Compile Include="Modules\RecoveryAbuse\Abilities\RecoveryAbility.cs" />
+    <Compile Include="Modules\RecoveryAbuse\Abilities\SoulRing.cs" />
+    <Compile Include="Modules\RecoveryAbuse\RecoveryAbuse.cs" />
+    <Compile Include="Modules\Snatcher\Controllables\Abilities\ControllableAbility.cs" />
+    <Compile Include="Modules\Snatcher\Controllables\Abilities\SleightOfFist.cs" />
+    <Compile Include="Modules\Snatcher\Controllables\Abilities\Swashbuckle.cs" />
+    <Compile Include="Modules\Snatcher\Controllables\ArcWardenClone.cs" />
+    <Compile Include="Modules\Snatcher\Snatcher.cs" />
+    <Compile Include="Modules\AutoActions\BlinkRangeChange.cs" />
+    <Compile Include="Modules\Snatcher\Controllables\Controllable.cs" />
+    <Compile Include="Modules\Snatcher\Controllables\MeepoClone.cs" />
+    <Compile Include="Modules\Snatcher\Controllables\SpiritBear.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\HeroUtils.cs" />
+    <Compile Include="Utils\ItemUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Divine">
+      <HintPath>..\..\..\..\..\Desktop\Divine\Output\References\Divine.dll</HintPath>
+    </Reference>
+    <Reference Include="Divine.SDK">
+      <HintPath>..\..\..\..\..\Desktop\Divine\Output\References\Divine.SDK.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Mathematics">
+      <HintPath>..\..\..\..\..\Desktop\Divine\Output\References\SharpDX.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\O9K.Core\O9K.Core.csproj">
+      <Project>{9789a144-cbd0-4dd5-8f78-2870ba4ca6d5}</Project>
+      <Name>O9K.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
